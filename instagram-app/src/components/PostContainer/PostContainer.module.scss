@@ -1,6 +1,7 @@
 .PostContainer {
-  width: 61.5rem;
   border: 0.1rem solid grey;
+  margin-bottom: 5rem;
+  border-radius: .2rem;
   .PostContainer_Header {
     padding: 1.5rem;
     img {
@@ -38,7 +39,7 @@
     padding: 1rem;
   }
   .PostContainer_CommentForm {
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     p {
       color: gray;
       font-size: 1.3rem;
