@@ -12,7 +12,7 @@ const searchBar = props => {
       <div>
         {" "}
         <form action="">
-          <input type="text" placeholder="search" />
+          <input type="text" placeholder="Search" />
         </form>
       </div>
       <div>
