@@ -1,0 +1,53 @@
+.PostContainer {
+  width: 61.5rem;
+  border: 0.1rem solid grey;
+  .PostContainer_Header {
+    padding: 1.5rem;
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    p {
+      display: inline-block;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+  }
+  .PostContainer_Img {
+    width: 61.4rem;
+    height: 61.4rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .PostContainer_Social {
+    i {
+      padding: 0.5rem 1rem;
+      font-size: 2rem;
+    }
+    p {
+      padding: 0 1rem;
+    }
+  }
+  .PostContainer_Comment {
+    padding: 1rem;
+  }
+  .PostContainer_CommentForm {
+    padding: 0 1rem;
+    p {
+      color: gray;
+      font-size: 1.3rem;
+    }
+    input {
+      font-size: 1.6rem;
+      outline: none;
+      width: 50rem;
+      padding: 0.5rem;
+    }
+  }
+}
