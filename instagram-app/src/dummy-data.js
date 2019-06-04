@@ -7,7 +7,7 @@ const dummyData = [
     imageUrl:
       "https://tk-assets.lambdaschool.com/69cf901b-f96d-466e-a745-ff2a01effac9_philz-image.jpg",
     likes: 400,
-    timestamp: "June 1 2019 12:42:40 pm",
+    timestamp: "June 1 2019, 12:42:40 pm",
     comments: [
       {
         username: "philzcoffee",

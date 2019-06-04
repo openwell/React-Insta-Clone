@@ -32,6 +32,11 @@
     i {
       padding: 0.5rem 1rem;
       font-size: 2rem;
+      color: rgba(0, 0, 0, 0.137);
+      cursor: pointer;
+      &:nth-of-type(1):hover{
+        color: rgba(255, 0, 0, 0.733);
+      }
     }
     p {
       padding: 0 1rem;
