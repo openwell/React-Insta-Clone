@@ -6,7 +6,7 @@ import "./App.scss";
 import Data from "./dummy-data";
 class App extends Component {
   state = {
-    data: Data
+    data: []
   };
   componentDidMount() {
     const updatedState = [...Data];
@@ -19,11 +19,14 @@ class App extends Component {
     const updatedState = [...this.state.data];
     updatedState.map(elem => {
       if (elem.id === data) {
-        elem = elem.comments.push({ text: comment, username: "tomi" });
-        
+        let mee = { ...elem };
+        elem["comments"] = mee.comments.concat([
+          { text: comment, username: "tomi" }
+        ]);
       }
       return elem;
     });
+    console.log(updatedState);
     this.setState({ data: updatedState });
   };
   render() {
