@@ -1,0 +1,66 @@
+.PostContainer {
+  border: 0.1rem solid #efefef;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  border-radius: 0.2rem;
+  max-width: 61.5rem;
+  .PostContainer_Header {
+    padding: 1.5rem;
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    p {
+      display: inline-block;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+  }
+  .PostContainer_Img {
+    max-width: 61.4rem;
+    max-height: 61.4rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .PostContainer_Social {
+    i {
+      padding: 0.5rem 1rem;
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.137);
+      cursor: pointer;
+      &:nth-of-type(1):hover{
+        color: rgba(255, 0, 0, 0.733);
+      }
+    }
+    p {
+      padding: 0 1rem;
+    }
+  }
+  .PostContainer_Comment {
+    padding: 1rem;
+    strong {
+      font-weight: bold;
+    }
+  }
+  .PostContainer_CommentForm {
+    padding: 1rem 1rem;
+    p {
+      color: gray;
+      font-size: 1.3rem;
+    }
+    input {
+      font-size: 1.6rem;
+      outline: none;
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      // border-top: .1rm solid #efefef;
+    }
+  }
+}
