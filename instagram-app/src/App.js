@@ -7,7 +7,7 @@ import Data from "./dummy-data";
 class App extends Component {
   state = {
     data: [],
-    search: ''
+    search: ""
   };
   componentDidMount() {
     const updatedState = [...Data];
@@ -29,7 +29,7 @@ class App extends Component {
     });
     this.setState({ data: updatedState });
   };
-  clickSubmitHandler = id => {
+  likeHandler = id => {
     const updatedState = [...this.state.data];
     updatedState.map(elem => {
       if (elem.id === id) {
@@ -37,7 +37,7 @@ class App extends Component {
       }
       return elem;
     });
-    this.setState({ data: updatedState });
+    this.setState({data: updatedState})
   };
   searchBarHandler = event => {
     event.preventDefault();
@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({ search: value });
   };
   render() {
-    let filteredState = [...this.state.data]
+    let filteredState = [...this.state.data];
     let filtered = filteredState.filter(
       element => element.username.toLowerCase().indexOf(this.state.search) > -1
     );
@@ -57,7 +57,7 @@ class App extends Component {
             key={uuid()}
             data={elem}
             submit={this.commentSubmitHandler}
-            like={this.clickSubmitHandler}
+            like={this.likeHandler}
           />
         ))}
       </div>

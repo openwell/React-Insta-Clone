@@ -9,7 +9,7 @@ const postContainer = props => {
       <div className={classes.PostContainer_Header}>
         <img src={props.data.thumbnailUrl} alt="" />
         <p>{props.data.username}</p>
-      </div>
+      </div> 
       <div className={classes.PostContainer_Img}>
         <img src={props.data.imageUrl} alt="" />
       </div>
