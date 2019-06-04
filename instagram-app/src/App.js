@@ -26,9 +26,18 @@ class App extends Component {
       }
       return elem;
     });
-    console.log(updatedState);
     this.setState({ data: updatedState });
   };
+  clickSubmitHandler=(id)=>{
+    const updatedState = [...this.state.data];
+    updatedState.map(elem => {
+      if (elem.id === id) {
+        elem.likes +=1
+      }
+      return elem;
+    });
+    this.setState({ data: updatedState });
+  }
   render() {
     return (
       <div className="App">
@@ -38,6 +47,7 @@ class App extends Component {
             key={uuid()}
             data={elem}
             submit={this.commentSubmitHandler}
+            like={this.clickSubmitHandler}
           />
         ))}
       </div>
