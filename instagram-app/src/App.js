@@ -12,7 +12,7 @@ class App extends Component {
     data: [],
     search: ""
   };
-
+ 
   componentDidMount() {
     const updatedState = [...Data];
     updatedState.map(elem => (elem.id = uuid()));
@@ -54,6 +54,9 @@ class App extends Component {
     let value = event.currentTarget.children[0].value.trim().toLowerCase();
     this.setState({ search: value });
   };
+  logoutHandler=()=>{
+    this.props.logOut(false, '', '');
+  }
   render() {
     let filteredState = [...this.state.data];
     let filtered = filteredState.filter(
@@ -61,7 +64,11 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <SearchBar searchBar={this.searchBarHandler}  username={this.props.username}/>
+        <SearchBar
+          searchBar={this.searchBarHandler}
+          username={this.props.username}
+          logout={this.logoutHandler}
+        />
         <PostContainer
           data={filtered}
           submit={this.commentSubmitHandler}
@@ -73,4 +80,4 @@ class App extends Component {
   }
 }
 
-export default withAuthentication(App,Login);
+export default withAuthentication(App, Login);
