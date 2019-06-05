@@ -7,6 +7,7 @@ class CommentSection extends Component {
   state = {
     comment: this.props.data
   };
+
   render() {
     let day = moment(Date.parse(this.props.timestamp)).fromNow();
     return (

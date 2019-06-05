@@ -9,11 +9,15 @@ class App extends Component {
     data: [],
     search: ""
   };
+
   componentDidMount() {
     const updatedState = [...Data];
     updatedState.map(elem => (elem.id = uuid()));
     this.setState({ data: updatedState });
   }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   console.log(prevProps, prevState, snapshot);
+  // }
   commentSubmitHandler = (event, data) => {
     event.preventDefault();
     let comment = event.currentTarget.children[0].value;
@@ -37,7 +41,10 @@ class App extends Component {
       }
       return elem;
     });
-    this.setState({data: updatedState})
+    this.setState((state, props) => {
+      // console.log(state, props);
+      return { data: updatedState };
+    });
   };
   searchBarHandler = event => {
     event.preventDefault();
@@ -52,14 +59,11 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar searchBar={this.searchBarHandler} />
-        {filtered.map(elem => (
-          <PostContainer
-            key={uuid()}
-            data={elem}
-            submit={this.commentSubmitHandler}
-            like={this.likeHandler}
-          />
-        ))}
+        <PostContainer
+          data={filtered}
+          submit={this.commentSubmitHandler}
+          like={this.likeHandler}
+        />
       </div>
     );
   }
