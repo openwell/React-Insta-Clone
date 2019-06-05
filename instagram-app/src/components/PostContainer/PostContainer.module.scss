@@ -42,25 +42,5 @@
       padding: 0 1rem;
     }
   }
-  .PostContainer_Comment {
-    padding: 1rem;
-    strong {
-      font-weight: bold;
-    }
-  }
-  .PostContainer_CommentForm {
-    padding: 1rem 1rem;
-    p {
-      color: gray;
-      font-size: 1.3rem;
-    }
-    input {
-      font-size: 1.6rem;
-      outline: none;
-      width: 100%;
-      padding: 0.5rem;
-      border: none;
-      // border-top: .1rm solid #efefef;
-    }
-  }
+
 }

@@ -6,7 +6,8 @@ import "./App.scss";
 import Data from "./dummy-data";
 class App extends Component {
   state = {
-    data: Data
+    data: [],
+    search: ''
   };
   componentDidMount() {
     const updatedState = [...Data];
@@ -19,22 +20,44 @@ class App extends Component {
     const updatedState = [...this.state.data];
     updatedState.map(elem => {
       if (elem.id === data) {
-        elem = elem.comments.push({ text: comment, username: "tomi" });
-        
+        let mee = { ...elem };
+        elem["comments"] = mee.comments.concat([
+          { text: comment, username: "tomi" }
+        ]);
       }
       return elem;
     });
     this.setState({ data: updatedState });
   };
+  clickSubmitHandler = id => {
+    const updatedState = [...this.state.data];
+    updatedState.map(elem => {
+      if (elem.id === id) {
+        elem.likes += 1;
+      }
+      return elem;
+    });
+    this.setState({ data: updatedState });
+  };
+  searchBarHandler = event => {
+    event.preventDefault();
+    let value = event.currentTarget.children[0].value.trim().toLowerCase();
+    this.setState({ search: value });
+  };
   render() {
+    let filteredState = [...this.state.data]
+    let filtered = filteredState.filter(
+      element => element.username.toLowerCase().indexOf(this.state.search) > -1
+    );
     return (
       <div className="App">
-        <SearchBar />
-        {this.state.data.map(elem => (
+        <SearchBar searchBar={this.searchBarHandler} />
+        {filtered.map(elem => (
           <PostContainer
             key={uuid()}
             data={elem}
             submit={this.commentSubmitHandler}
+            like={this.clickSubmitHandler}
           />
         ))}
       </div>
