@@ -19,6 +19,7 @@ const searchBar = props => {
         <i className="fas fa-compass" />
         <i className="fas fa-heart" />
         <i className="fas fa-user" />
+        <span>Welcome {props.username}</span>
       </div>
     </div>
   );
