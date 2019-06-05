@@ -1,10 +1,10 @@
 .Searchbar {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-bottom: .1rem solid #efefef;
+  border-bottom: 0.1rem solid #efefef;
   div:nth-of-type(1) {
     i {
       font-size: 3rem;
@@ -16,11 +16,11 @@
   }
   div:nth-of-type(2) {
     input {
-      padding: .5rem;
-      border-radius: .2rem;
+      padding: 0.5rem;
+      border-radius: 0.2rem;
       border: 0.1rem solid #efefef;
       outline: none;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       width: 20rem;
       text-align: center;
     }
@@ -29,6 +29,18 @@
     i {
       padding: 1rem;
       font-size: 2rem;
+    }
+  }
+  .Logout {
+    button {
+      margin-left: .5rem;
+      background: black;
+      color: white;
+      outline: none;
+      &:hover {
+        background: white;
+        color: black;
+      }
     }
   }
 }
