@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import uuid from "uuid/v1";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
-import PostsPage from "./components/PostContainer/PostPage";
 import withAuthentication from "./hoc/authentication/withAuthentication";
 import Login from "./components/Login/Login";
 import "./App.scss";
@@ -12,7 +11,7 @@ class App extends Component {
     data: [],
     search: ""
   };
- 
+
   componentDidMount() {
     const updatedState = [...Data];
     updatedState.map(elem => (elem.id = uuid()));
@@ -21,20 +20,16 @@ class App extends Component {
   // componentDidUpdate(prevProps, prevState, snapshot) {
   //   console.log(prevProps, prevState, snapshot);
   // }
-  commentSubmitHandler = (event, data) => {
-    event.preventDefault();
-    let comment = event.currentTarget.children[0].value;
-    const updatedState = [...this.state.data];
-    updatedState.map(elem => {
-      if (elem.id === data) {
-        let mee = { ...elem };
-        elem["comments"] = mee.comments.concat([
-          { text: comment, username: this.props.username }
-        ]);
-      }
-      return elem;
-    });
-    this.setState({ data: updatedState });
+  commentSubmitHandler = (newComment, id) => {
+    // console.log(newComment, id)
+    this.setState(state => ({
+      data: state.data.map(elem => {
+        if (elem.id === id) {
+          elem.comments = newComment;
+        }
+        return elem;
+      })
+    }));
   };
   likeHandler = id => {
     const updatedState = [...this.state.data];
@@ -54,9 +49,9 @@ class App extends Component {
     let value = event.currentTarget.children[0].value.trim().toLowerCase();
     this.setState({ search: value });
   };
-  logoutHandler=()=>{
-    this.props.logOut(false, '', '');
-  }
+  logoutHandler = () => {
+    this.props.logOut(false, "", "");
+  };
   render() {
     let filteredState = [...this.state.data];
     let filtered = filteredState.filter(
@@ -74,7 +69,6 @@ class App extends Component {
           submit={this.commentSubmitHandler}
           like={this.likeHandler}
         />
-        <PostsPage />
       </div>
     );
   }

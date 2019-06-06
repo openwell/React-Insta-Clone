@@ -22,9 +22,9 @@ const postContainer = props => {
           </div>
           <CommentSection
             timestamp={elem.timestamp}
-            data={elem.comments}
+            data={elem.comments.map(elem => ({ ...elem, id: uuid() }))}
             id={elem.id}
-            addNewComment={props.submit}
+            commentHandler={props.submit}
           />
         </div>
       ))}
