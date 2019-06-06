@@ -80,4 +80,4 @@ class App extends Component {
   }
 }
 
-export default withAuthentication(App, Login);
+export default withAuthentication(App)(Login);
