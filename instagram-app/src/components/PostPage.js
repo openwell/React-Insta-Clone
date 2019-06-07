@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import uuid from "uuid/v1";
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
-import withAuthentication from "./hoc/authentication/withAuthentication";
-import Login from "./components/Login/Login";
-import "./App.scss";
-import Data from "./dummy-data";
-class App extends Component {
+import SearchBar from "./SearchBar/SearchBar";
+import PostContainer from "./PostContainer/PostContainer";
+import withAuthentication from "../hoc/authentication/withAuthentication";
+import "./PostPage.scss";
+import Data from "../dummy-data";
+class PostPage extends Component {
   state = {
     data: [],
     search: ""
@@ -57,11 +56,13 @@ class App extends Component {
     let filtered = filteredState.filter(
       element => element.username.toLowerCase().indexOf(this.state.search) > -1
     );
+    let data = localStorage.getItem("User");
+        data = JSON.parse(data);
     return (
-      <div className="App">
+      <div className="PostPage">
         <SearchBar
           searchBar={this.searchBarHandler}
-          username={this.props.username}
+          username={data.username}
           logout={this.logoutHandler}
         />
         <PostContainer
@@ -74,4 +75,4 @@ class App extends Component {
   }
 }
 
-export default withAuthentication(App)(Login);
+export default withAuthentication(PostPage);

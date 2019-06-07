@@ -1,6 +1,6 @@
-import React, { Component } from "../../../node_modules/react";
-
-export default App=> Login => {
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+export default PostPage => {
   return class extends Component {
     state = {
       login: false,
@@ -8,7 +8,7 @@ export default App=> Login => {
       password: ""
     };
 
-    componentDidMount() {
+    componentWillMount() {
       this.getUser();
     }
     getUser = () => {
@@ -23,22 +23,12 @@ export default App=> Login => {
       }
     };
 
-  
-    
     loginHandler = (data, username, password) => {
-      if (data) {
-        this.setState(state => ({
-          login: !state.login,
-          username: username,
-          password: password
-        }));
-      } else {
         this.setState(state => ({
           login: !state.login,
           username: null,
           password: null
         }));
-      }
       let user = {
         login: data,
         username: username,
@@ -49,13 +39,12 @@ export default App=> Login => {
 
     render() {
       const hocComponent = this.state.login ? (
-        <App
+        <PostPage
           {...this.props}
-          username={this.state.username}
           logOut={this.loginHandler}
         />
       ) : (
-        <Login login={this.loginHandler} />
+        <Redirect to="/login" />
       );
       return hocComponent;
     }
