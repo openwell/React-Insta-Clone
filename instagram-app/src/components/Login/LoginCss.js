@@ -1,4 +1,6 @@
-.Container {
+import styled from "styled-components";
+
+export const Container = styled.div`
   margin: 0 auto;
   width: 50%;
   padding: 2rem;
@@ -42,4 +44,5 @@
     display: block;
     text-align: center;
   }
-}
+`;
+
