@@ -52,6 +52,12 @@ class PostPage extends Component {
     this.props.logOut(false, "", "");
   };
   render() {
+    let page ={
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+    }
     let filteredState = [...this.state.data];
     let filtered = filteredState.filter(
       element => element.username.toLowerCase().indexOf(this.state.search) > -1
@@ -59,7 +65,7 @@ class PostPage extends Component {
     let data = localStorage.getItem("User");
         data = JSON.parse(data);
     return (
-      <div className="PostPage">
+      <div className="PostPage" style={page}>
         <SearchBar
           searchBar={this.searchBarHandler}
           username={data.username}

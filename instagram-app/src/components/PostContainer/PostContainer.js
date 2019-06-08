@@ -3,11 +3,13 @@ import React from "react";
 import classes from "./PostContainer.module.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import uuid from "uuid/v1";
+
 const postContainer = props => {
+ 
   return (
     <>
       {props.data.map(elem => (
-        <div className={classes.PostContainer} key={uuid()}>
+        <div className={classes.PostContainer} key={uuid()} >
           <div className={classes.PostContainer_Header}>
             <img src={elem.thumbnailUrl} alt="" />
             <p>{elem.username}</p>

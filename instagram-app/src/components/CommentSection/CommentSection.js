@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import classes from "./CommentSection.module.scss";
 import moment from "moment";
 import uuid from "uuid/v1";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import "../../container/App.css";
 
 class CommentSection extends Component {
   state = {
@@ -22,7 +24,7 @@ class CommentSection extends Component {
     this.setState(
       state => ({ comment: state.comment.concat(data) }),
       () => {
-        this.props.commentHandler(this.state.comment, this.props.id);
+        // this.props.commentHandler(this.state.comment, this.props.id);
       }
     );
     event.currentTarget.reset();
@@ -33,22 +35,23 @@ class CommentSection extends Component {
         comment: state.comment.filter(elem => elem.id !== id)
       }),
       () => {
-        this.props.commentHandler(this.state.comment, this.props.id);
+        // this.props.commentHandler(this.state.comment, this.props.id);
       }
     );
   };
   render() {
-    // console.log(this.state.comment);
     let day = moment(Date.parse(this.props.timestamp)).fromNow();
     return (
       <>
-        <div className={classes.PostContainer_Comment}>
+        <TransitionGroup className={classes.PostContainer_Comment}>
           {this.state.comment.map(elem => (
-            <p key={uuid()} onClick={() => this.deleteComment(elem.id)}>
-              <strong>{elem.username}</strong> {elem.text}
-            </p>
+            <CSSTransition key={elem.id} timeout={500} classNames="fade">
+              <p onClick={() => this.deleteComment(elem.id)}>
+                <strong>{elem.username}</strong> {elem.text}
+              </p>
+            </CSSTransition>
           ))}
-        </div>
+        </TransitionGroup>
 
         <div className={classes.PostContainer_CommentForm}>
           <p>{day}</p>

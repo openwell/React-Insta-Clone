@@ -23,8 +23,14 @@ class login extends Component {
     }
   };
   render() {
+    let page ={
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+    }
     return (
-      <Container>
+      <Container style={page}>
         {this.state.error ? (
           <strong className="Error">
             Try Again username/password must be > 3
