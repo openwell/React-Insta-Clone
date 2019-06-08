@@ -18,11 +18,14 @@ const searchBar = props => {
       <div>
         <i className="fas fa-compass" />
         <i className="fas fa-heart" />
-        <i className={"fas fa-user"} />
+        <i className={"fas fa-user"} >
         <div className={classes.Logout}>
+          <br/>
           <small>Hi {props.username}</small>
           <button onClick={props.logout}>Logout</button>
         </div>
+        </i>
+        
         
         
       </div>
